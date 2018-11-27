@@ -1,0 +1,9 @@
+\section{System Performance Specifications}\label{sec:circuit}
+The major system performance specifications of the inspection system designed in this project are as follows:
+\begin{itemize}
+	\item The final demonstration successfully proved that all the 48 items can be sorted in 45 seconds without any errors.
+	\item Up to eight objects can be sorted at a time. The system will not give accurate results if both the exit sensor and the pre-reflectance optical sensor detects items in their range at the same time. Hence sufficient gap must be maintained before loading another batch of eight items onto the conveyor.
+	\item The conveyor speed cannot be increased beyond the set speed. If a higher speed is used the ADC results are inaccurate sometimes and also there is a chance of the item slipping due to inertia when the belt is stopped at the exit sensor. This may lead to the object falling into the wrong bin even if it is identified correctly by the MCU.
+	\item The stepper uses a very slow acceleration. A faster rate of acceleration was causing the item falling on the edge of the bin. However, it was identified during the final demonstration that the tray was slightly misaligned when the bin is set to the home position. Manually correcting the position solved the issue. However, had this been detected earlier, a faster stepper speed could have been used which could have reduced the time required to sort 48 pieces to possibly less than 40 seconds.
+	\item The inspection system is to be calibrated each time before startup as the ADC can give different results depending on the time of the day and ambient temperature. It will not cause any issue in identifying between steel, aluminum, and plastic. But, it may give an error in differentiating between black and white item.
+\end{itemize}

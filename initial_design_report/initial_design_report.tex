@@ -1,0 +1,116 @@
+%----------------------------------------------------------------------------
+%----------------------------------------------------------------------------
+%				    	SETUP
+%----------------------------------------------------------------------------
+%----------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+
+%----------------------------------------------------------------------------
+%			  	   PACKAGES
+%----------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% 	  Packages
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Fonts and Symbols
+%% --------------------------
+\usepackage{
+	amsmath,			% math operators
+	amssymb,			% math symbols
+	courier,			% better tt font for listings
+	soul,				  % strike through with \st{}
+	url,				 % embed urls in text
+	xcolor,				% color!
+}
+
+% preserve default font for URLs
+\renewcommand*{\UrlFont}{\rmfamily}		
+
+%% Graphics
+%% --------------------
+\usepackage{
+	graphicx,			% allows insertion of images
+	subfigure,		% allows subfigures (a), (b), etc.
+}				
+\graphicspath{ {graphics/} }	% (graphicx) relative path to graphics folder				
+
+%% Tables
+%% --------------------------
+\usepackage{
+	booktabs,			% better tables, discourages vertical rulings
+	multicol,			% allow multi columns
+}
+
+%% Layout Alteration
+%% --------------------------
+\usepackage{			
+%	caption,			% line breaks in captions with \\
+	geometry,			% change the margins for specific PAGES
+	parskip,			% disable indents
+	rotating,			% sideways figures
+	setspace,			% single, double spacing
+}
+\geometry{			% specify page size options for (geometry)
+	a4paper, 			% paper size
+	hmargin=0.5in,	% horizontal margins
+	vmargin=0.75in,	% vertical margins
+}	
+
+
+%% Units
+%% --------------------------
+\usepackage{
+	siunitx,			% has S (decimal align) column type
+}
+\sisetup{input-symbols = {()},  % do not treat "(" and ")" in any special way
+	group-digits  = false, 	% no grouping of digits
+%	load-configurations = abbreviations,
+%	per-mode = symbol,
+}
+
+%% Misc
+%% --------------------------
+\usepackage{
+	enumitem,			% better control of enumerations, descriptions, etc
+}
+
+%% References
+%% --------------------------
+\usepackage[backend=bibtex,style=ieee]{biblatex}
+\addbibresource{initial_design_report.bib}
+
+%----------------------------------------------------------------------------
+%		     MACROS AND COMMANDS
+%----------------------------------------------------------------------------
+
+% override S column type with centered text column
+\newcommand{\textcol}[1]{\multicolumn{1}{c}{#1}}
+
+
+%----------------------------------------------------------------------------
+%----------------------------------------------------------------------------
+%				   DOCUMENT
+%----------------------------------------------------------------------------
+%----------------------------------------------------------------------------
+
+\begin{document}
+
+\doublespacing
+\input{sections/titlepage}
+\newpage
+\input{sections/intro}
+\newpage
+\input{sections/timeline}
+\newpage
+\input{sections/flowchart}
+\newpage
+\input{sections/discussion}
+\newpage
+\input{sections/circuit}
+
+\newpage
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}

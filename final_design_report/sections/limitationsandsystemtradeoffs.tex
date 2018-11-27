@@ -1,0 +1,8 @@
+\section{Limitations and System Trade-offs}\label{sec:intro}
+The major limitations and trade-offs of the design are summarized below:
+\begin{itemize}
+	\item The major limitation of the system was that it could not sort items with continuous loading. The items needed to be loaded in batches of 8 for the inspection system to work accurately. This was due to a limitation in the code which was unable to handle two simultaneous interrupts - one by the exit optical sensor to dequeue the linked list and one by the pre-reflectance optical sensor to initiate a new link in the FIFO linked list. This significantly increased the time required to sort the items.
+	\item The inspection system only used the reflectance sensor for differentiating the different items. Though it was sufficient for identifying object type between steel, aluminum and plastic materials, it was not always very accurate in differentiating between white plastic and black plastic items as their reflectance values were much closer. Hence frequent calibrations were required for the system to work 100\% accurately.
+	\item Very high DC motor drive speed could not be used due to the shorter available time for the ADC and also due to the items slipping off the belt when stopped at the exit sensor. This compromised on the time required for sorting items as the travel time was higher.
+	\item The acceleration of the stepper was not very impressive. A higher acceleration and hence speed of stepper turns were causing the items to fall on the edges of the bin. This could have been avoided by carefully calibrating the tray to its home position.
+\end{itemize}
